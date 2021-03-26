@@ -1,9 +1,10 @@
 #!/bin/bash
 
-OUTPUT=$(ifconfig show | awk '/inet.*brd/{print $NF; exit}')
+NIC=$(ifconfig show | awk '/inet.*brd/{print $NF; exit}')
 GATEWAY_IP=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
-# OUTPUT="eth0"
-# GATEWAY_IP="192.168.1.1"
+DNS_SERVER_IP=$(awk -F" " '/nameserver/{print $2;}' /etc/resolv.conf | sed -n 2p)
+IPV6_ADDRESS=$(awk -F" " '/nameserver/{print $2;}' /etc/resolv.conf | sed -n 3p)
+
 RAND_NUMB=$(( $RANDOM % 255 ))
 
 for X in ${RAND_NUMB}
@@ -16,9 +17,9 @@ do
     fi
 
     STATIC_IP=${RAND_IP}
-    echo ">>>>>>>>>>>Your static IP address is ${STATIC_IP}<<<<<<<<<<<<<<<<<<<<"
 done
 
-echo interface ${OUTPUT} >> /Users/sunny/pi-vpn/dummy.sh
-echo -e '\t'Static ip_address=${STATIC_IP} >> /Users/sunny/pi-vpn/dummy.sh
-echo -e '\t'Static routers=${GATEWAY_IP} >> /Users/sunny/pi-vpn/dummy.sh
+echo interface ${NIC} >> /etc/dhcpcd.conf
+echo -e '\t'Static ip_address=${STATIC_IP} >> /etc/dhcpcd.conf
+echo -e '\t'Static routers=${GATEWAY_IP} >> /etc/dhcpcd.conf
+echo -e '\t'static domain_name_servers=${GATEWAY_IP} ${DNS_SERVER_IP} ${IPV6_ADDRESS} >> /etc/dhcpcd.conf
