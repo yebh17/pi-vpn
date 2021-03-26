@@ -1,8 +1,8 @@
-# Automated scripts for OpenVPN setting on Raspberry pi
+# Automated scripts for OpenVPN/WireGuard setting on Raspberry pi
 
 ## About the application
 
-A simple project to convert your raspberry pi to openVPN server. Doing this you can,
+A simple project to convert your raspberry pi to openVPN/WireGuard server. Doing this you can,
 
 - Access your files, music, and movies from anywhere
 - Encrypt your mobile internet connection
