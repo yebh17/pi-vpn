@@ -4,12 +4,12 @@
 
 A simple project to convert your raspberry pi to openVPN server. Doing this you can,
 
-Access your files, music, and movies from anywhere
-Encrypt your mobile internet connection
-Print on your home printers from your laptop
-Bypass firewalls and website restrictions at work and abroad
-Hide your mobile IP address
-Connect with your home cameras and smart devices
+- Access your files, music, and movies from anywhere
+- Encrypt your mobile internet connection
+- Print on your home printers from your laptop
+- Bypass firewalls and website restrictions at work and abroad
+- Hide your mobile IP address
+- Connect with your home cameras and smart devices
 
 ## Components Required
 
