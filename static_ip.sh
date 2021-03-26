@@ -23,3 +23,10 @@ echo interface ${NIC} >> /etc/dhcpcd.conf
 echo -e '\t'Static ip_address=${STATIC_IP} >> /etc/dhcpcd.conf
 echo -e '\t'Static routers=${GATEWAY_IP} >> /etc/dhcpcd.conf
 echo -e '\t'static domain_name_servers=${GATEWAY_IP} ${DNS_SERVER_IP} ${IPV6_ADDRESS} >> /etc/dhcpcd.conf
+
+read -p "The application would like to reboot your system! [yn]" answer
+if [[ $answer = y ]] ; then
+  sudo reboot || echo "An issue with the reboot command. Please reboot your system manaully!"
+else
+    echo "Done setting static-IP, but to take effect you need to reboot your system."
+fi
