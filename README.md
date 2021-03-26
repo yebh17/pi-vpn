@@ -18,4 +18,10 @@ A simple project to convert your raspberry pi to openVPN server. Doing this you 
 
 ## Steps
 
--	`write here`
+- `ssh pi@[Enter your raspberrypi_ip_address]`
+- `git clone https://github.com/yebh17/pi-vpn.git`
+- `cd pi-vpn`
+- `chmod a+x *`
+- `./init.sh`
+- `./static_ip.sh`
+- `./pi-vpn_install.sh`
